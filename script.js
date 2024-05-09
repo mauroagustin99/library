@@ -1,4 +1,6 @@
-/*function Book(title, author, pagesNumber, read) {
+const myLibrary = [];
+
+function Book(title, author, pagesNumber, read) {
   this.title = title;
   this.author = author;
   this.pagesNumber = pagesNumber;
@@ -9,30 +11,46 @@
     );
   };
 }
+function addBookToLibrary(book) {
+  myLibrary.push(book);
+}
 
+function displayLibrary() {
+  booksContainer.innerHTML = '';
 
-*/
-alert('Hello world');
-let head = {
-  glasses: 1,
-};
+  myLibrary.forEach(function (book) {
+    const bookDiv = document.createElement('div');
+    bookDiv.classList.add('book');
 
-let table = {
-  pen: 3,
-};
+    const titleHeading = document.createElement('h1');
+    titleHeading.textContent = book.title;
 
-let bed = {
-  sheet: 1,
-  pillow: 2,
-};
+    const authorHeading = document.createElement('h2');
+    authorHeading.textContent = `Autor: ${book.author}`;
 
-let pockets = {
-  money: 2000,
-};
+    const pagesParagraph = document.createElement('p');
+    pagesParagraph.textContent = `Número de páginas: ${book.pagesNumber}`;
 
-Object.setPrototypeOf(table, head);
-Object.setPrototypeOf(bed, table);
-//Object.setPrototypeOf(pockets, bed);
-alert(pockets.pen); // 3
-alert(bed.glasses); // 1
-alert(table.money); // undefined
+    const readParagraph = document.createElement('p');
+    readParagraph.textContent = `¿Ya leído? ${book.read ? 'Sí' : 'No'}`;
+
+    bookDiv.appendChild(titleHeading);
+    bookDiv.appendChild(authorHeading);
+    bookDiv.appendChild(pagesParagraph);
+    bookDiv.appendChild(readParagraph);
+
+    booksContainer.appendChild(bookDiv);
+  });
+}
+
+const booksContainer = document.getElementById('books-container');
+
+const book1 = new Book('el senior de los anillos', 'carlos', 123, true);
+const book2 = new Book('el seniors', 'roberto', 215, true);
+const book3 = new Book('el seniors', 'roberto', 215, true);
+addBookToLibrary(book1);
+addBookToLibrary(book2);
+addBookToLibrary(book3);
+displayLibrary();
+
+console.log(myLibrary);

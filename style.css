@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+header {
+  color: white;
+  background-color: blueviolet;
+  width: 100vw;
+  padding: 20px; /* Añade espacio alrededor del contenido del header */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Establece el efecto de sombra */
+}
+h1 {
+  margin: 0;
+}
 body {
   background-color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, clamp(30%, 400px, 500px));
+  gap: 15px;
+  margin: 10px;
+}
+.book {
+  border: 1px solid black;
 }
