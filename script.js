@@ -31,13 +31,17 @@ function displayLibrary() {
     titleHeading.textContent = book.title;
 
     const authorHeading = document.createElement('h2');
-    authorHeading.textContent = `Autor: ${book.author}`;
+    authorHeading.textContent = `Author: ${book.author}`;
 
     const pagesParagraph = document.createElement('p');
-    pagesParagraph.textContent = `Número de páginas: ${book.pagesNumber}`;
+    pagesParagraph.textContent = `Pages number: ${book.pagesNumber}`;
 
-    const readParagraph = document.createElement('p');
-    readParagraph.textContent = `¿Ya leído? ${book.read ? 'Sí' : 'No'}`;
+    const readCheckbox = document.createElement('input');
+    readCheckbox.type = 'checkbox';
+    readCheckbox.checked = book.read;
+
+    const readLabel = document.createElement('label');
+    readLabel.textContent = 'Read';
 
     const removeBtn = document.createElement('button');
     removeBtn.classList.add('remove-btn');
@@ -46,13 +50,18 @@ function displayLibrary() {
     bookDiv.appendChild(titleHeading);
     bookDiv.appendChild(authorHeading);
     bookDiv.appendChild(pagesParagraph);
-    bookDiv.appendChild(readParagraph);
+    bookDiv.appendChild(readLabel);
+    bookDiv.appendChild(readCheckbox);
     bookDiv.appendChild(removeBtn);
 
     booksContainer.appendChild(bookDiv);
 
-    //Adding 'remove' button functionality
+    //Read checkbox functionality
+    readCheckbox.addEventListener('change', function () {
+      book.read = readCheckbox.checked;
+    });
 
+    //Adding 'remove' button functionality
     removeBtn.addEventListener('click', () => {
       myLibrary.splice(myLibrary.indexOf(book), 1);
       displayLibrary();
