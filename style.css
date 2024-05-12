@@ -27,3 +27,27 @@ body {
 .book {
   border: 1px solid black;
 }
+
+/* FOOTER */
+footer {
+  background-color: #8a2be2; /* BlueViolet más oscuro */
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-content {
+  max-width: 960px; /* Puedes ajustar el ancho máximo según tu preferencia */
+  margin: 0 auto; /* Centra el contenido del footer */
+  padding: 20px; /* Añade espacio alrededor del contenido */
+  color: white; /* Color del texto */
+}
+
+.footer-content p {
+  margin-bottom: 10px; /* Añade espacio debajo del párrafo */
+}
+
+.footer-content a img {
+  width: 40px; /* Ajusta el tamaño de la imagen de GitHub según sea necesario */
+  height: auto;
+}

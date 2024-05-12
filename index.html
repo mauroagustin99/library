@@ -14,10 +14,43 @@
   <body>
     <header><h1>Library</h1></header>
     <main>
+      <dialog id="new-book-dialog">
+        <form id="book-form">
+
+            <label>Book Name:</label>
+              <input type="text" id="book-name">
+              </input>
+            
+            <label>Author:</label>
+              <input type="text" id="author-name">
+              </input>
+            
+            <label>Number of Pages:</label>
+              <input type="text" id="pages-number">
+              </input>
+
+            <legend>Read?</legend>
+              
+              <input type="radio" id="read-yes" name="read" value="Yes"/><label for="read-yes">Yes</label>
+              <input type="radio" id="read-no" name="read" value="No"/><label for="read-no">No</label>
+
+
+          <div>
+            <button id="cancelBtn" value="cancel"  >Cancel</button>
+            <button id="confirmBtn" value="default" formmethod="dialog">Confirm</button>
+          </div>
+        </form>
+      </dialog>
+
       <button id="new-book">New Book</button>
+      <output></output>
+      
       <div id="books-container"></div>
     </main>
-    <footer>Footer</footer>
+    <footer><div class="footer-content">
+        <p>&copy; 2024 - mauroagustin99. All rights reserved.</p>
+        <a href="https://github.com/tuusuario" target="_blank"><img src="ruta/al/logo/github.png" alt="GitHub"></a>
+    </div></footer>
     <script src="script.js"></script>
   </body>
 </html>
