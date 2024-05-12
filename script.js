@@ -27,15 +27,20 @@ function displayLibrary() {
     const bookDiv = document.createElement('div');
     bookDiv.classList.add('book');
 
-    const titleHeading = document.createElement('h1');
+    const titleHeading = document.createElement('p');
+    titleHeading.classList.add('book-title');
     titleHeading.textContent = book.title;
 
-    const authorHeading = document.createElement('h2');
+    const authorHeading = document.createElement('p');
+    authorHeading.classList.add('book-author');
     authorHeading.textContent = `Author: ${book.author}`;
 
     const pagesParagraph = document.createElement('p');
+    pagesParagraph.classList.add('book-pages-number');
     pagesParagraph.textContent = `Pages number: ${book.pagesNumber}`;
 
+    const readDiv = document.createElement('div');
+    readDiv.classList.add('read-check');
     const readCheckbox = document.createElement('input');
     readCheckbox.type = 'checkbox';
     readCheckbox.checked = book.read;
@@ -50,8 +55,11 @@ function displayLibrary() {
     bookDiv.appendChild(titleHeading);
     bookDiv.appendChild(authorHeading);
     bookDiv.appendChild(pagesParagraph);
-    bookDiv.appendChild(readLabel);
-    bookDiv.appendChild(readCheckbox);
+
+    readDiv.appendChild(readCheckbox);
+    readDiv.appendChild(readLabel);
+
+    bookDiv.appendChild(readDiv);
     bookDiv.appendChild(removeBtn);
 
     booksContainer.appendChild(bookDiv);
@@ -70,8 +78,8 @@ function displayLibrary() {
 }
 
 // Book examples
-const book1 = new Book('el senior de los anillos', 'carlos', 123, true);
-const book2 = new Book('el seniors', 'roberto', 215, true);
+const book1 = new Book('The Analyst: A Novel', 'Jhon Katzenbach', 512, true);
+const book2 = new Book('Holding Up the Universe', 'Jennifer Niven', 400, false);
 addBookToLibrary(book1);
 addBookToLibrary(book2);
 
@@ -83,7 +91,7 @@ const bookForm = document.getElementById('book-form');
 const bookNameInput = document.getElementById('book-name');
 const authorNameInput = document.getElementById('author-name');
 const pagesNumberInput = document.getElementById('pages-number');
-const readYesInput = document.getElementById('read-yes');
+const readCheckbox = document.querySelector('input[type="checkbox"]');
 
 showButton.addEventListener('click', () => {
   showDialog.showModal();
@@ -95,7 +103,7 @@ bookForm.addEventListener('submit', function (event) {
   const title = bookNameInput.value;
   const author = authorNameInput.value;
   const pagesNumber = parseInt(pagesNumberInput.value);
-  const read = readYesInput.checked;
+  const read = readCheckbox.checked;
 
   // Create a new book instance
   const newBook = new Book(title, author, pagesNumber, read);
@@ -114,7 +122,8 @@ bookForm.addEventListener('submit', function (event) {
 });
 
 const cancelBtn = document.getElementById('cancelBtn');
-cancelBtn.addEventListener('click', function () {
+cancelBtn.addEventListener('click', function (event) {
+  event.preventDefault();
   showDialog.close();
 
   // Reset the form

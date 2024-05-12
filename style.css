@@ -1,53 +1,206 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-header {
-  color: white;
-  background-color: blueviolet;
-  width: 100vw;
-  padding: 20px; /* Añade espacio alrededor del contenido del header */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Establece el efecto de sombra */
-}
-h1 {
-  margin: 0;
-}
-body {
-  background-color: #fff;
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
   padding: 0;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+/* HEADER */
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  color: white;
+  background-color: blueviolet;
+  width: 100%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 3em;
+  font-weight: 700;
+}
+
+header * {
+  margin: 15px 100px;
+}
+
+#new-book {
+  background-color: #b191f7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 10em;
+  transition: background-color 0.3s ease;
+}
+#new-book:hover {
+  background-color: #6d1c9c;
+}
+
+/* BODY */
+body {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 
 #books-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, clamp(30%, 400px, 500px));
+  grid-template-columns: repeat(auto-fit, clamp(20%, 300px, 400px));
   gap: 15px;
   margin: 10px;
+  justify-content: center;
+  grid-auto-flow: dense;
+  max-width: 100%;
 }
 .book {
-  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  background-color: #f5f5f5;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 0;
+  text-align: center;
+  font-size: 1em;
+}
+
+.book-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #8a2be2;
+  margin: 16px;
+}
+
+.book-author {
+  margin: 0;
+}
+.remove-btn {
+  background-color: #8a2be2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 10em;
+  transition: background-color 0.3s ease;
+  margin: 20px auto 10px auto;
+}
+
+.remove-btn:hover {
+  background-color: #8b008b;
+}
+
+.read-check {
+  align-items: center;
+}
+
+.read-check input[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #8a2be2;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.read-check input[type='checkbox']:checked {
+  background-color: #8a2be2;
+  border-color: #8a2be2;
+}
+
+.read-check input[type='checkbox']:checked::before {
+  content: '\2713';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: white;
+}
+
+/*NEW BOOK DIALOG*/
+
+#new-book-dialog {
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+}
+
+#book-form {
+  display: grid;
+  gap: 10px;
+}
+#book-form input[type='text'],
+#book-form input[type='number'] {
+  width: 95%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.form-buttons * {
+  background-color: #8a2be2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 10em;
+  transition: background-color 0.3s ease;
+}
+.form-buttons *:hover {
+  background-color: #8b008b;
 }
 
 /* FOOTER */
 footer {
-  background-color: #8a2be2; /* BlueViolet más oscuro */
-  width: 100vw;
+  background-color: #8a2be2;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
   position: fixed;
   bottom: 0;
 }
 
 .footer-content {
-  max-width: 960px; /* Puedes ajustar el ancho máximo según tu preferencia */
-  margin: 0 auto; /* Centra el contenido del footer */
-  padding: 20px; /* Añade espacio alrededor del contenido */
-  color: white; /* Color del texto */
+  width: 100%;
+  margin: 0 auto;
+  color: white;
 }
 
+.footer-content a,
 .footer-content p {
-  margin-bottom: 10px; /* Añade espacio debajo del párrafo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 4px;
 }
-
+a:visited {
+  color: white;
+}
 .footer-content a img {
-  width: 40px; /* Ajusta el tamaño de la imagen de GitHub según sea necesario */
+  width: 40px;
   height: auto;
+  padding: 2px;
 }
