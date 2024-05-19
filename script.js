@@ -4,18 +4,21 @@ const myLibrary = [];
 // Books container DOM
 const booksContainer = document.getElementById('books-container');
 
-// Book constructor
-function Book(title, author, pagesNumber, read) {
-  this.title = title;
-  this.author = author;
-  this.pagesNumber = pagesNumber;
-  this.read = read;
-  this.info = function () {
-    return (
-      this.title + ' by ' + this.author + ', ' + pagesNumber + ', ' + this.read
-    );
-  };
+// Book class
+class Book {
+  constructor(title, author, pagesNumber, read) {
+    this.title = title;
+    this.author = author;
+    this.pagesNumber = pagesNumber;
+    this.read = read;
+  }
+
+  //Using getter
+  get info() {
+    return `${this.title} by ${this.author}, ${this.pagesNumber} pages, ${this.read} HOLAAAAAA`;
+  }
 }
+
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
@@ -78,7 +81,7 @@ function displayLibrary() {
 }
 
 // Book examples
-const book1 = new Book('The Analyst: A Novel', 'Jhon Katzenbach', 512, true);
+const book1 = new Book('The Analyst: A Novel', 'John Katzenbach', 512, true);
 const book2 = new Book('Holding Up the Universe', 'Jennifer Niven', 400, false);
 addBookToLibrary(book1);
 addBookToLibrary(book2);
