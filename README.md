@@ -7,3 +7,5 @@ Simple library app using Javascript objects
 ### Update
 
 Implemented JS Classes learned during the TOP JavaScript Course
+
+Implemented Validation API
