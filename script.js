@@ -101,7 +101,10 @@ showButton.addEventListener('click', () => {
 });
 
 bookForm.addEventListener('submit', function (event) {
-  event.preventDefault();
+  if (!bookForm.checkValidity()) {
+    event.preventDefault();
+    return;
+  }
 
   const title = bookNameInput.value;
   const author = authorNameInput.value;

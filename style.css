@@ -173,6 +173,11 @@ body {
   background-color: #8b008b;
 }
 
+input:invalid {
+  border-color: #900;
+  background-color: #fdd;
+}
+
 /* FOOTER */
 footer {
   background-color: #8a2be2;

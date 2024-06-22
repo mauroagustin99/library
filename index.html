@@ -18,19 +18,22 @@
     </header>
     <main>
       <dialog id="new-book-dialog">
-        <form id="book-form">
+        <form id="book-form" novalidate>
 
             <label>Book Name:<br>
-              <input type="text" id="book-name" placeholder="eg: Pride and Prejudice" required>
+              <input type="text" id="book-name" placeholder="eg: Pride and Prejudice" required minlength="3">
               </input></label>
+              <span class="name error" aria-live="polite"></span>
             
             <label>Author:<br>
-              <input type="text" id="author-name" placeholder="eg: Jane Austen" required>
+              <input type="text" id="author-name" placeholder="eg: Jane Austen" required minlength="2">
               </input></label>
+              <span class="author error" aria-live="polite"></span>
             
             <label>Number of Pages:<br>
               <input type="number" id="pages-number" placeholder="eg: 512" min='1' required>
               </input></label>
+              <span class="number error" aria-live="polite"></span>
 
 
               <div class="read-check">
@@ -38,10 +41,12 @@
                 <label>Read</label>
               </div>
 
+              <span class="total error" aria-live="polite"></span>
+
 
           <div class="form-buttons">
             <button id="cancelBtn" value="cancel"  >Cancel</button>
-            <button id="confirmBtn" value="default" formmethod="dialog">Confirm</button>
+            <button type="submit" id="confirmBtn" value="default" formmethod="dialog">Confirm</button>
           </div>
         </form>
       </dialog>
@@ -54,6 +59,8 @@
     <footer><div class="footer-content">
         <p>&copy; 2024 - <a href="https://github.com/mauroagustin99" target="_blank">mauroagustin99 <img src="./img/github-mark-white.svg" alt="GitHub"></a></p>
     </div></footer>
+        <script src="validation.js"></script>
     <script src="script.js"></script>
+
   </body>
 </html>
