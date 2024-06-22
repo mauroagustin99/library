@@ -173,9 +173,21 @@ body {
   background-color: #8b008b;
 }
 
+/*input:valid {
+  border-color: #6d1c9c;
+  background-color: #8a2be2;
+}
+
 input:invalid {
   border-color: #900;
   background-color: #fdd;
+}
+*/
+.error {
+  color: red;
+}
+.invalid {
+  border: 2px solid red !important;
 }
 
 /* FOOTER */

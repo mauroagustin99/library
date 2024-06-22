@@ -16,24 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!bookName.checkValidity()) {
       nameError.textContent = bookName.validationMessage;
       valid = false;
+      bookName.classList.add('invalid');
     } else {
       nameError.textContent = '';
+      bookName.classList.remove('invalid');
     }
 
     // Validar el nombre del autor
     if (!authorName.checkValidity()) {
       authorError.textContent = authorName.validationMessage;
       valid = false;
+      authorName.classList.add('invalid');
     } else {
       authorError.textContent = '';
+      authorName.classList.remove('invalid');
     }
 
     // Validar el número de páginas
     if (!pagesNumber.checkValidity()) {
       numberError.textContent = pagesNumber.validationMessage;
+      pagesNumber.classList.add('invalid');
       valid = false;
     } else {
       numberError.textContent = '';
+      pagesNumber.classList.remove('invalid');
     }
 
     if (!valid) {
@@ -48,24 +54,30 @@ document.addEventListener('DOMContentLoaded', () => {
   bookName.addEventListener('input', () => {
     if (bookName.checkValidity()) {
       nameError.textContent = '';
+      bookName.classList.remove('invalid');
     } else {
       nameError.textContent = bookName.validationMessage;
+      bookName.classList.add('invalid');
     }
   });
 
   authorName.addEventListener('input', () => {
     if (authorName.checkValidity()) {
       authorError.textContent = '';
+      authorName.classList.remove('invalid');
     } else {
       authorError.textContent = authorName.validationMessage;
+      authorName.classList.add('invalid');
     }
   });
 
   pagesNumber.addEventListener('input', () => {
     if (pagesNumber.checkValidity()) {
       numberError.textContent = '';
+      numberError.classList.remove('invalid');
     } else {
       numberError.textContent = pagesNumber.validationMessage;
+      numberError.classList.add('invalid');
     }
   });
 });
